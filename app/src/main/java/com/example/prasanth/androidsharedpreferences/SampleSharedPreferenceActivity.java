@@ -1,6 +1,7 @@
 package com.example.prasanth.androidsharedpreferences;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ public class SampleSharedPreferenceActivity extends AppCompatActivity implements
     private EditText fName;
     private EditText lName;
     private EditText age;
-    private Button saveButton, btnShowDetails;
+    private Button saveButton, btnShowDetails, internalStorageBtn, externalStorageBtn;
     private String firstName, lastName;
     private int age_user;
     private SharedPreferences sharedPreferences;
@@ -34,13 +35,19 @@ public class SampleSharedPreferenceActivity extends AppCompatActivity implements
         fName = (EditText) findViewById(R.id.firstName);
         lName = (EditText) findViewById(R.id.lastName);
         age = (EditText) findViewById(R.id.age);
+
         saveButton = (Button) findViewById(R.id.saveBtn);
-        btnShowDetails=(Button)findViewById(R.id.showBtn);
+        btnShowDetails = (Button) findViewById(R.id.showBtn);
+        internalStorageBtn = (Button) findViewById(R.id.internalStorageBtn);
+        externalStorageBtn = (Button) findViewById(R.id.externalStorageBtn);
+
         fName.requestFocus();
         sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
         saveButton.setOnClickListener(this);
         btnShowDetails.setOnClickListener(this);
+        internalStorageBtn.setOnClickListener(this);
+        externalStorageBtn.setOnClickListener(this);
 
     }
 
@@ -67,7 +74,14 @@ public class SampleSharedPreferenceActivity extends AppCompatActivity implements
                 String rtvName = sharedPreferences.getString(NAME, "");
                 Toast.makeText(this, "Retreived name is" + rtvName, Toast.LENGTH_SHORT).show();
                 break;
-
+            case R.id.internalStorageBtn:
+                Intent internalStgIntent = new Intent(this, ShrdPrfnceIntnalStgActivity.class);
+                startActivity(internalStgIntent);
+                break;
+            case R.id.externalStorageBtn:
+                Intent externalStgIntent = new Intent(this, ExternalStorageActivity.class);
+                startActivity(externalStgIntent);
+                break;
         }
     }
 }

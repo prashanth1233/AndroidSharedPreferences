@@ -18,30 +18,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/firstName"
-        android:paddingTop="10dp"
-        android:hint="Last Name"/>
+        android:hint="Last Name"
+        android:paddingTop="10dp" />
+
     <EditText
         android:id="@+id/age"
-        android:layout_below="@+id/lastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="Enter Age"/>
+        android:layout_below="@+id/lastName"
+        android:hint="Enter Age"
+        android:inputType="number" />
+
     <Button
         android:id="@+id/saveBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/age"
         android:layout_alignParentLeft="true"
-        android:text="SAVE"/>
+        android:layout_below="@+id/age"
+        android:text="SAVE" />
 
     <Button
         android:id="@+id/showBtn"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_below="@id/age"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_below="@id/age"
+        android:text="SHOW" />
 
-        android:text="SHOW"/>
+    <Button
+        android:id="@+id/internalStorageBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/showBtn"
+        android:layout_marginTop="40dp"
+        android:text="Go ToInternal Storage Activity" />
+
+    <Button
+        android:id="@+id/externalStorageBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/internalStorageBtn"
+        android:layout_marginTop="40dp"
+        android:text="Go To External Storage Activity"/>
 
 </RelativeLayout>
